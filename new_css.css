@@ -1,0 +1,98 @@
+.remark-slide-number {
+  font-size: 12pt;
+  margin-bottom: -11.6px;
+  margin-right: 10px;
+  color: #ffb703; /* white */
+  opacity: 1; /* default: 0.5 */
+}
+
+.footnote {
+  bottom: 1em;
+  font-size: 80%;
+  color: #7f7f7f;
+}
+.remark-slide-content {
+    font-size: 20px;
+    padding: 1em 4em 1em 4em;
+    line-height: 1.5;
+}
+
+.bigger {
+  font-size: 145%;
+}
+.huge{
+  font-size: 300%;
+}
+
+.small {
+  font-size: 95%;
+}
+.smaller {
+  font-size: 85%;
+}
+.smallest {
+  font-size: 75%;
+}
+
+.tiny {
+  font-size: 50%;
+}
+
+.right05 {
+  padding-top: 0.7em;
+  float: right;
+  width: 5%;
+}
+
+.left10 {
+  padding-top: 0.2em;
+  margin-left: 2em;
+  margin-right: -0.5em;
+  float: left;
+  width: 100%;
+}
+
+.hi-crimson {
+  font-weight: 600;
+  color: rgb(132,22,23) !important;
+}
+
+.footnote {
+  position:           absolute;
+  bottom:             2em;
+  padding-right:      4em;
+  font-size:          70%;
+  line-height:        1em;
+}
+
+
+
+.title-slide h1 {
+  font-size:          3.4em;
+  font-weight:        600;
+  color:              #006d77;
+}
+.title-slide h3 {
+  color:              red;
+  font-size:          1.1em;
+  text-transform:     uppercase;
+}
+
+a {
+  color:              #005EB8;
+  border-bottom:      2px solid #005EB8;
+  line-height:        1.5em;
+}
+
+a:hover {
+  border-bottom:      1px;
+}
+
+.container {
+  background-image: url('bk_3.jpg') 30px;
+  background-blend-mode: screen, multiply, lighten;
+}
+
+.title-slide{
+  background-color: #dce4e6;
+}
