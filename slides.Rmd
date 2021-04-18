@@ -1,0 +1,182 @@
+---
+title: "Lightning Talk - Recursion "
+subtitle: "Some examples from Data Analysis"  
+author: 
+  - "Nithin M"
+date: '10 April,2021'
+output:
+  xaringan::moon_reader:
+    css: ["default", "metropolis-fonts", "new_css.css"]
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      ratio: "16:9"
+      beforeInit: "macros.js"
+      countIncrementalSlides: false
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+      
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.width=9, fig.height=3.5, fig.retina=3,
+  out.width = "100%",
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE,
+  fig.show = TRUE,
+  hiline = TRUE
+)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#1381B0",
+  secondary_color = "#FF961C",
+  inverse_header_color = "#FFFFFF",
+  link_color = "#8d99ae",
+  inverse_link_color = "#edf2f4"
+)
+```
+```{r Libraries,include=FALSE}
+packages<-c("tidyverse","data.table","fontawesome","DT","xaringanExtra","here","icons")
+sapply(packages,library,character.only=T)
+xaringanExtra::use_tachyons()
+xaringanExtra::use_webcam()
+xaringanExtra::use_tile_view()
+xaringanExtra::use_panelset()
+style_panelset_tabs(foreground = "#2d6a4f", background = "#fefae0")
+
+```
+```{r meta, echo=FALSE}
+library(metathis)
+meta() %>%
+  meta_general(
+    description = "Some tips and tricks for economists",
+    generator = "xaringan and remark.js"
+  ) %>% 
+  meta_name("github-repo" = "nithinmkp/Lightning-talk-pune") %>% 
+  meta_social(
+    title = "Lightning Talk",
+    og_author = "Nithin M"
+  )
+```
+class: title-slide, left, top, container
+background-image: url("r_lad.jpg"), url("bk_3.jpg")
+background-position: 12% 90%, 50% 50%
+background-size: 15%, cover
+background-blend-mode: multiply,multiply
+
+
+.left[
+# `r rmarkdown::metadata$title`
+### `r rmarkdown::metadata$subtitle`
+
+.bigger[.serif_font[**`r rmarkdown::metadata$author`** 
+]]
+]
+
+.right-nit[![:scale 39%](cat1.jpg)]
+
+
+
+---
+name: about-me
+layout: false
+class: about-me-slide, inverse, middle, center
+
+# About Me
+
+<img style="border-radius: 60%;" src="/img1.jpeg" width="150px"/>
+
+## Nithin M
+ Doctoral Student, Economics
+
+.fade[Indian Institute of Technology-Kharagpur]
+---
+class: top, normal-slide
+
+# What this talk is about 
+--
+
+- Recursion
+--
+
+- Purrr package
+--
+
+- Some examples
+---
+class: normal-slide, top
+# Recursion
+
+--
+- repetitive works
+
+--
+- loops 
+
+--
+- apply family
+---
+class: inverse, middle, center, container-inv
+
+background-image: url("purrr.jpg")
+background-blend-mode: screen
+
+---
+class: normal-slide, top
+
+# Why purrr??
+
+- tidyverse integration
+- fast
+- type consistent
+
+---
+class:  top
+
+# Examples
+.panelset[
+.panel[.panel-name[Data Cleaning]
+- Renaming Dataframes
+- Column names
+- Merging Dataframes
+- Type conversion
+]
+
+.panel[.panel-name[Regressions]
+
+- Fitting multiple regressions
+- Extracting coefficients
+- Extracting other useful informations
+]
+
+.panel[.panel-name[ggplot]
+- multiple plots
+
+
+]
+
+
+
+]
+---
+class: imp_slide, center,middle
+
+# Live coding
+`r icons::icon_style(icons::fontawesome("code"), scale = 3, color = "#122140")`
+
+
+
+
+
+
