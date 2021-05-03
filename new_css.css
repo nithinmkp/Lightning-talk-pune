@@ -1,3 +1,5 @@
+
+<script src="https://kit.fontawesome.com/559078231a.js" crossorigin="anonymous"></script>
 .remark-slide-number {
   font-size: 12pt;
   margin-bottom: -11.6px;
@@ -14,7 +16,7 @@
 .remark-slide-content {
     font-size: 20px;
     padding: 1em 4em 1em 4em;
-    line-height: 1.5;
+    line-height: 2;
 }
 
 .bigger {
@@ -68,7 +70,7 @@
 
 
 .title-slide h1 {
-  font-size:          3.4em;
+  font-size:          3em;
   font-weight:        600;
   color:              #006d77;
 }
@@ -84,15 +86,145 @@ a {
   line-height:        1.5em;
 }
 
-a:hover {
-  border-bottom:      1px;
-}
+
 
 .container {
   background-image: url('bk_3.jpg') 30px;
-  background-blend-mode: screen, multiply, lighten;
+  background-blend-mode: multiply, lighten,lighten;
 }
 
 .title-slide{
   background-color: #dce4e6;
 }
+
+.remark-slide-number {
+  position: inherit;
+}
+
+.remark-slide-number .progress-bar-container {
+  position: absolute;
+  bottom: 0;
+  height: 10px;
+  display: block;
+  left: 0;
+  right: 0;
+}
+
+.remark-slide-number .progress-bar {
+  height: 100%;
+  background-color: #ff8811;
+  width: 120%;
+}
+
+.title-slide .remark-slide-number { display: none; }
+
+.serif_font {
+  font-family: Sans-Serif;
+  text-transform: uppercase;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Fira+Code);
+
+.f1 {
+  font-family: 'Fira+Code', monospace;
+  font-weight: 600;
+}
+
+.f1-g {
+  font-family: 'Fira+Code', monospace;
+  font-weight: 600;
+  color: #06d6a0;
+  font-size: 80px;
+}
+
+.right-nit {
+  position: absolute;
+  left: 95%;
+  top: 65%;
+  right: -100%;
+  float: right;
+  transform: translate(-25%, -65%);
+  
+}
+
+
+:root {
+/*-- COLOR VARIABLES --*/
+--DarkBlue:           #003087;
+--Blue:               #005EB8;
+--BrightBlue:         #0072CE;
+
+--Black:              #231F20;
+--DarkGrey:           #425563;
+--MidGrey:            #768692;
+--PaleGrey:           #E8EDEE;
+--White:              #FFFFFF;
+
+--DarkGreen:          #006747;
+--Green:              #009639;
+--AquaGreen:          #00A499;
+
+--Purple:             #330072;
+--DarkPink:           #7C2855;
+--Pink:               #AE2573;
+--DarkRed:            #8A1538;
+--Red:                #DA291C;
+
+--my-blue:            #122140;
+--my-yellow:          #e5bf00;
+--my-gold:            #ae8f00;
+
+--my-coral:          #903030;
+--my-red:            #600018;
+--my-pink:           #c09090;
+--my-lblue:          #98c1d9;
+}
+
+
+.about-me-slide h1 {
+  color:              var(--my-gold);
+  font-weight:        600;
+}
+
+.inverse {
+  background-color:   var(--my-blue);
+  color:              var(--PaleGrey);
+  text-shadow:        none;
+  
+}
+
+.normal-slide {
+  background-color: #788aa3;
+  font-size: 28px;
+  color: #ffee93;
+  font-weight: 750;
+  font-family: serif;
+}
+
+.normal-slide h1{
+  font-weight: 900;
+  color: #eff1f3;
+}
+
+.imp_slide{
+  background-color: #ffc300;
+}
+
+.container-inv {
+  background-image: url('bk_3.jpg') 30px;
+  background-blend-mode:  lighten,lighten;
+}
+
+
+
+ul {
+list-style-type: square;
+}
+
+ul li: marker {
+content: "\f105";
+font-family: FontAwesome;
+color: red; /* or whatever color you prefer */
+margin-right: 4px;
+}
+
