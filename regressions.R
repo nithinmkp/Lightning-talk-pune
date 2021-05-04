@@ -125,6 +125,13 @@ y<-map(x,unitroot_fn) %>% map_df(bind_rows)
 #ggplot
 
 data(gapminder)
+dir.create("ggplots")
+
+plot_fn<-function(country,coef){
+        coef %>% ggplot(aes(x=term,y=estimate))+
+                geom_col()+
+                labs(title = country)
+} 
 
 gapminder %>% group_by(country,continent) %>% 
         nest() %>% 
@@ -142,12 +149,22 @@ gapminder %>% group_by(country,continent) %>%
         
         
 
-plot_fn<-function(country,coef){
-        coef %>% ggplot(aes(x=term,y=estimate))+
-                geom_col()+
-                labs(title = country)
-}  
+ # Another example
 
-dir.create("ggplots")
+
+nest_mod %>% mutate(coef=map(model,~tidy(.x))) %>% ungroup() %>% 
+        mutate(plot=map(model,dwplot(model,show_intercept = T))) %>% head() %>% 
+        select(plot) %>% walk(print)
+
+.Last.value$coef[1] %>% dwplot(show_intercept = T)+theme_bw()
+
+nest_list<-nest_mod %>% mutate(coef=map(model,~tidy(.x))) %>% unnest(coef)
+mods<-split(nest_list,nest_list$country) %>% map(~.x %>% select(-c(1:3))) %>% 
+        head()
+
+        
+map2(mods,names(mods),~dwplot(.x,show_intercept = T)+
+            theme_bw()+theme(legend.position = "none")+
+            ggtitle(.y))
 
 
