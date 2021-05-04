@@ -33,11 +33,22 @@ wacr_data_fn<-function(df,freq="quarter"){
                 df_list<-split(df,df$Range) %>% map(~.x %>% select(-c(Range,Annual)))
                 df_list<-map(df_list,~remove_empty(.x,which = "cols"))
                 #Function to create dataframe in desired format
-                df_fn<-function(dt){
+                df_fn<-function(dt){ 
+                        dt$Year<-as.numeric(dt$Year)
+                if(sum(is.na(dt[nrow(dt),]))<=3){
+                        dt2<-data.frame(Year=rep(c(dt$Year,
+                                                   dt$Year[length(dt$Year)]+1),
+                                                 c(9,rep(12,nrow(dt)-1),3)),
+                                        Month=rep(names(dt)[-1],times=nrow(dt))
+                                        
+                                        ,WACR=c(t(dt[,-1])))      
+                }else{
                         dt2<-data.frame(Year=rep(dt$Year,c(9,rep(12,nrow(dt)-2),15)),
                                         Month=rep(names(dt)[-1],times=nrow(dt))
                                         
                                         ,WACR=c(t(dt[,-1])))
+                        }
+                        
                         dt2<-dt2 %>% unite("Year-Month",Year,Month,sep = "-")
                         dt2$`Year-Month`<-as.yearmon(dt2$`Year-Month`,"%Y-%b")
                         dt2<-dt2 %>% as_tibble()
