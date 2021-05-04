@@ -136,7 +136,9 @@ gapminder %>% group_by(country,continent) %>%
                 return(x)
         })) %>% 
         mutate(plot=map2(country,coef,plot_fn)) %>% head() %>% 
-        select(plot) %>% walk(print)
+        mutate(filename=paste0("ggplots/",country,".png")) %>% 
+        select(-coef,-country) %>% pwalk(ggsave)  
+        
         
         
 
@@ -146,5 +148,6 @@ plot_fn<-function(country,coef){
                 labs(title = country)
 }  
 
+dir.create("ggplots")
 
 
