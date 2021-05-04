@@ -82,7 +82,6 @@ save_as_docx(tab3,path = "tabe3.docx")
 
 diff(USeconomic)
 
-## ggplot
 
 
 data<-data.frame(USeconomic)
@@ -123,4 +122,29 @@ x<-ts_fn(data,vars)
 y<-map(x,unitroot_fn) %>% map_df(bind_rows)
 
 
+#ggplot
+
+data(gapminder)
+
+gapminder %>% group_by(country,continent) %>% 
+        nest() %>% 
+        mutate(model=map(.x=data,~lm(lifeExp~log(pop),data = .x)))%>% 
+        mutate(coef=map(model,~tidy(.x))) %>% ungroup() %>% 
+        select(country,coef) %>% 
+        mutate(coef=map(.x=coef,function(x){
+                x$term[which(x$term=="(Intercept)")]<-"Constant"
+                return(x)
+        })) %>% 
+        mutate(plot=map2(country,coef,plot_fn)) %>% head() %>% 
+        select(plot) %>% walk(print)
         
+        
+
+plot_fn<-function(country,coef){
+        coef %>% ggplot(aes(x=term,y=estimate))+
+                geom_col()+
+                labs(title = country)
+}  
+
+
+
